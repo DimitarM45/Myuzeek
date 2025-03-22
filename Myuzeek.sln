@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myuzeek.API", "Myuzeek.API\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myuzeek.Data", "Myuzeek.Data\Myuzeek.Data.csproj", "{8897088E-99ED-4B2B-81CC-F8485B545125}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myuzeek.Data.Models", "Myuzeek.Data.Models\Myuzeek.Data.Models.csproj", "{71045E69-96EB-46AD-97F3-B6D1C8D0C6E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8897088E-99ED-4B2B-81CC-F8485B545125}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8897088E-99ED-4B2B-81CC-F8485B545125}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8897088E-99ED-4B2B-81CC-F8485B545125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71045E69-96EB-46AD-97F3-B6D1C8D0C6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71045E69-96EB-46AD-97F3-B6D1C8D0C6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71045E69-96EB-46AD-97F3-B6D1C8D0C6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71045E69-96EB-46AD-97F3-B6D1C8D0C6E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
