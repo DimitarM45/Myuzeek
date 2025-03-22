@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "myuzeek.client",
-    "slug": "myuzeek.client",
+    "slug": "myuzeek",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -36,6 +36,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f9aefb03-d53a-45e2-ab02-666cc1996b58"
+      }
+    },
+    "owner": "dimitar45"
   }
 }
