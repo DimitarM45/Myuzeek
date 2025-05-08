@@ -1,0 +1,6 @@
+@Myuzeek.API_HostAddress = http://localhost:5249
+
+GET {{Myuzeek.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
