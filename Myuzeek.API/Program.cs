@@ -19,7 +19,7 @@ public class Program
         builder.Services.AddDbContext<MyuzeekDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
         
-        builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+        builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
             .AddEntityFrameworkStores<MyuzeekDbContext>()
             .AddDefaultTokenProviders();
 

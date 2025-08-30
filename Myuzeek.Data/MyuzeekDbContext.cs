@@ -1,19 +1,24 @@
 ﻿namespace Myuzeek.Data;
 
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 using Models;
 
-public class MyuzeekDbContext : IdentityDbContext<ApplicationUser>
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
+public class MyuzeekDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
 {
     public MyuzeekDbContext(DbContextOptions<MyuzeekDbContext> options)
         : base(options)
     {
     }
 
+    public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+    public DbSet<Post> Posts { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
     }
 }
