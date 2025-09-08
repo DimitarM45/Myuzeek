@@ -1,10 +1,8 @@
 ﻿namespace Myuzeek.Data;
 
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Models;
 
-public class MyuzeekDbContext : IdentityDbContext<ApplicationUser>
+public class MyuzeekDbContext : DbContext
 {
     public MyuzeekDbContext(DbContextOptions<MyuzeekDbContext> options)
         : base(options)
@@ -14,6 +12,5 @@ public class MyuzeekDbContext : IdentityDbContext<ApplicationUser>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
     }
 }
