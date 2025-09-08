@@ -3,9 +3,6 @@ namespace Myuzeek.API;
 using Data;
 using Data.Models;
 
-using Core.Services;
-using Core.Contracts;
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -30,7 +27,6 @@ public class Program
             .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
-                options.Authority = 
             });
 
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -43,7 +39,6 @@ public class Program
         .AddDefaultTokenProviders();
 
         builder.Services.AddAuthorization();
-        builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
         var app = builder.Build();
 

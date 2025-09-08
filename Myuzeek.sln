@@ -6,7 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myuzeek.API", "Myuzeek.API\Myuzeek.API.csproj", "{5D903652-A8EB-480C-B7BC-ADCC5CB16D42}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2D5FFAAB-B478-43EB-AB72-FC1A0B7F941F} = {2D5FFAAB-B478-43EB-AB72-FC1A0B7F941F}
-		{F708F579-B69D-4059-A2F9-4423754ECD8C} = {F708F579-B69D-4059-A2F9-4423754ECD8C}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myuzeek.Core", "Myuzeek.Core\Myuzeek.Core.csproj", "{2D5FFAAB-B478-43EB-AB72-FC1A0B7F941F}"
@@ -16,6 +15,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myuzeek.Data.Models", "Myuzeek.Data.Models\Myuzeek.Data.Models.csproj", "{F7683BE9-810A-44FB-9675-46D9A282E0B3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myuzeek.IdentityServer", "Myuzeek.IdentityServer\Myuzeek.IdentityServer.csproj", "{B854DEE5-B2A8-9E13-313B-933CF572FFF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myuzeek.API.Models", "Myuzeek.API.Models\Myuzeek.API.Models.csproj", "{0374AFD8-B8D2-DF91-D20B-BE366C8CAC83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +44,10 @@ Global
 		{B854DEE5-B2A8-9E13-313B-933CF572FFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B854DEE5-B2A8-9E13-313B-933CF572FFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B854DEE5-B2A8-9E13-313B-933CF572FFF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0374AFD8-B8D2-DF91-D20B-BE366C8CAC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0374AFD8-B8D2-DF91-D20B-BE366C8CAC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0374AFD8-B8D2-DF91-D20B-BE366C8CAC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0374AFD8-B8D2-DF91-D20B-BE366C8CAC83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
