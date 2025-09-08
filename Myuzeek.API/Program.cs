@@ -1,10 +1,8 @@
 namespace Myuzeek.API;
 
 using Data;
-using Data.Models;
 
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 public class Program
@@ -27,16 +25,14 @@ public class Program
             .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
+                options.Authority = builder.Configuration.GetValue<string>("Authority");
+                options.TokenValidationParameters = new()
+                {
+                    ValidateAudience = true,
+                    ValidAudience = builder.Configuration.GetValue<string>("Audience")
+                };
+                options.RequireHttpsMetadata = true;
             });
-
-        builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
-        {
-            options.Lockout.MaxFailedAccessAttempts = 6;
-            options.User.RequireUniqueEmail = true;
-            options.SignIn.RequireConfirmedEmail = true;
-        })
-        .AddEntityFrameworkStores<MyuzeekDbContext>()
-        .AddDefaultTokenProviders();
 
         builder.Services.AddAuthorization();
 

@@ -1,54 +1,33 @@
-using System.Globalization;
-using System.Text;
-using Duende.IdentityServer.Licensing;
 using Myuzeek.IdentityServer;
-using Serilog;
 
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()
-    .CreateBootstrapLogger();
-
-Log.Information("Starting up");
-
-try
+public class Program
 {
-    var builder = WebApplication.CreateBuilder(args);
-
-    var app = builder
-        .ConfigureLogging()
-        .ConfigureServices()
-        .ConfigurePipeline();
-
-    if (app.Environment.IsDevelopment())
+    private static void Main(string[] args)
     {
-        app.Lifetime.ApplicationStopping.Register(() =>
+        WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+        WebApplication app = builder
+            .ConfigureServices();
+
+        if (app.Environment.IsDevelopment())
         {
-            var usage = app.Services.GetRequiredService<LicenseUsageSummary>();
-            Console.Write(Summary(usage));
-        });
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyuzeekIdentityServer API V1");
+                c.RoutePrefix = string.Empty;
+            });
+            app.UseDeveloperExceptionPage();
+        }
+
+        app.UseRouting();
+        app.UseIdentityServer();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
+
+        app.MapControllers();
+
+        app.Run();
     }
-
-    app.Run();
-}
-catch (Exception ex) when (ex is not HostAbortedException)
-{
-    Log.Fatal(ex, "Unhandled exception");
-}
-finally
-{
-    Log.Information("Shut down complete");
-    Log.CloseAndFlush();
-}
-
-static string Summary(LicenseUsageSummary usage)
-{
-    var sb = new StringBuilder();
-    sb.AppendLine("IdentityServer Usage Summary:");
-    sb.AppendLine(CultureInfo.InvariantCulture, $"  License: {usage.LicenseEdition}");
-    var features = usage.FeaturesUsed.Count > 0 ? string.Join(", ", usage.FeaturesUsed) : "None";
-    sb.AppendLine(CultureInfo.InvariantCulture, $"  Business and Enterprise Edition Features Used: {features}");
-    sb.AppendLine(CultureInfo.InvariantCulture, $"  {usage.ClientsUsed.Count} Client Id(s) Used");
-    sb.AppendLine(CultureInfo.InvariantCulture, $"  {usage.IssuersUsed.Count} Issuer(s) Used");
-
-    return sb.ToString();
 }
