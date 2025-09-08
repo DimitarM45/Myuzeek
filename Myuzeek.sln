@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myuzeek.API", "Myuzeek.API\Myuzeek.API.csproj", "{5D903652-A8EB-480C-B7BC-ADCC5CB16D42}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2D5FFAAB-B478-43EB-AB72-FC1A0B7F941F} = {2D5FFAAB-B478-43EB-AB72-FC1A0B7F941F}
+		{F708F579-B69D-4059-A2F9-4423754ECD8C} = {F708F579-B69D-4059-A2F9-4423754ECD8C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myuzeek.Core", "Myuzeek.Core\Myuzeek.Core.csproj", "{2D5FFAAB-B478-43EB-AB72-FC1A0B7F941F}"
 EndProject
