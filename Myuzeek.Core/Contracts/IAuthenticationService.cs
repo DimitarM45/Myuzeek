@@ -1,8 +1,13 @@
 ﻿namespace Myuzeek.Core.Contracts;
 
-using API.Models;
+using Enums;
+using Response_Models;
+
+using API.Models.Request_Models;
 
 public interface IAuthenticationService
 {
-    Task<bool> RegisterUser(RegisterUserRequest request, CancellationToken ct);
+    Task<BaseResponseModel<string>> RegisterUserAsync(RegisterUserRequest request, CancellationToken ct);
+
+    Task<BaseResponseModel<string>> SignInUserAsync(LogInUserRequest request, CancellationToken ct);
 }

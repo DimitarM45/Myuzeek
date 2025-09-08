@@ -3,8 +3,12 @@ namespace Myuzeek.API;
 using Data;
 using Data.Models;
 
+using Core.Services;
+using Core.Contracts;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 public class Program
 {
@@ -15,13 +19,31 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        builder.Logging.ClearProviders();
+        builder.Logging.AddEventLog();
         
         builder.Services.AddDbContext<MyuzeekDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-        
-        builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-            .AddEntityFrameworkStores<MyuzeekDbContext>()
-            .AddDefaultTokenProviders();
+
+        builder.Services
+            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.Authority = 
+            });
+
+        builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+        {
+            options.Lockout.MaxFailedAccessAttempts = 6;
+            options.User.RequireUniqueEmail = true;
+            options.SignIn.RequireConfirmedEmail = true;
+        })
+        .AddEntityFrameworkStores<MyuzeekDbContext>()
+        .AddDefaultTokenProviders();
+
+        builder.Services.AddAuthorization();
+        builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
         var app = builder.Build();
 
